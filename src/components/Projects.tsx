@@ -9,7 +9,9 @@ const Projects = () => {
       description: 'An elegant coffee shop website with traditional Arabic aesthetics, a fully responsive layout, and immersive visual storytelling.',
       image: 'https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=800',
       tech: ['React.js', 'Tailwind CSS', 'Framer Motion'],
-      category: 'E-commerce'
+      category: 'E-commerce',
+      siteUrl: 'https://mahmoudrady3.github.io/bon-el-sultan',
+      repoUrl: 'https://github.com/mahmoudrady3/bon-el-sultan'
     },
     {
       title: 'Chronos Luxury',
@@ -17,7 +19,9 @@ const Projects = () => {
       description: 'A cinematic landing page for a luxury watch, featuring rich animations and storytelling that mimics high-end international advertising.',
       image: 'https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=800',
       tech: ['React.js', 'CSS3', 'GSAP'],
-      category: 'Landing Page'
+      category: 'Landing Page',
+      siteUrl: 'https://mahmoudrady3.github.io/chronos-luxury',
+      repoUrl: 'https://github.com/mahmoudrady3/chronos-luxury'
     },
     {
       title: 'Nova Estate',
@@ -25,7 +29,9 @@ const Projects = () => {
       description: 'A modern real estate platform showcasing properties with clean visuals, structured layout, and intuitive navigation.',
       image: 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=800',
       tech: ['React.js', 'Tailwind CSS', 'Node.js'],
-      category: 'Platform'
+      category: 'Platform',
+      siteUrl: 'https://mahmoudrady3.github.io/nova-estate',
+      repoUrl: 'https://github.com/mahmoudrady3/nova-estate'
     },
     {
       title: 'Inter Point',
@@ -33,7 +39,9 @@ const Projects = () => {
       description: 'A tourism company website promoting domestic travel across Egypt, with multilingual support and full-page navigation.',
       image: 'https://images.pexels.com/photos/71241/pexels-photo-71241.jpeg?auto=compress&cs=tinysrgb&w=800',
       tech: ['React.js', 'i18next', 'Tailwind CSS'],
-      category: 'Tourism'
+      category: 'Tourism',
+      siteUrl: 'https://mahmoudrady3.github.io/inter-point',
+      repoUrl: 'https://github.com/mahmoudrady3/inter-point'
     },
     {
       title: 'LUXE Store',
@@ -41,7 +49,9 @@ const Projects = () => {
       description: 'A stylish e-commerce store for furniture and décor, including offer pages, product details, and a shopping cart experience.',
       image: 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800',
       tech: ['React.js', 'Redux', 'Stripe API'],
-      category: 'E-commerce'
+      category: 'E-commerce',
+      siteUrl: 'https://mahmoudrady3.github.io/luxe-store',
+      repoUrl: 'https://github.com/mahmoudrady3/luxe-store'
     }
   ];
 
@@ -86,12 +96,28 @@ const Projects = () => {
 
                   {/* Action Buttons */}
                   <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <button className="p-2 bg-dark-900/80 text-white rounded-full hover:bg-gold-500 hover:text-dark-900 transition-colors">
-                      <ExternalLink size={18} />
-                    </button>
-                    <button className="p-2 bg-dark-900/80 text-white rounded-full hover:bg-gold-500 hover:text-dark-900 transition-colors">
-                      <Github size={18} />
-                    </button>
+                    {project.siteUrl && (
+                      <a
+                        href={project.siteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 bg-dark-900/80 text-white rounded-full hover:bg-gold-500 hover:text-dark-900 transition-colors"
+                        title="View Website"
+                      >
+                        <ExternalLink size={18} />
+                      </a>
+                    )}
+                    {project.repoUrl && (
+                      <a
+                        href={project.repoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 bg-dark-900/80 text-white rounded-full hover:bg-gold-500 hover:text-dark-900 transition-colors"
+                        title="View Code"
+                      >
+                        <Github size={18} />
+                      </a>
+                    )}
                   </div>
                 </div>
 

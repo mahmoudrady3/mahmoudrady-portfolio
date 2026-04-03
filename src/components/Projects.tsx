@@ -1,170 +1,391 @@
-import React from 'react';
-import { ExternalLink, Github } from 'lucide-react';
-
-const Projects = () => {
-  const projects = [
-    {
-      title: 'Bon El Sultan',
-      subtitle: 'Premium Coffee Store',
-      description: 'An elegant coffee shop website with traditional Arabic aesthetics, a fully responsive layout, and immersive visual storytelling.',
-      image: 'https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tech: ['React.js', 'Tailwind CSS', 'Framer Motion'],
-      category: 'E-commerce',
-      siteUrl: 'https://mahmoudrady3.github.io/bon-el-sultan',
-      repoUrl: 'https://github.com/mahmoudrady3/bon-el-sultan'
-    },
-    {
-      title: 'Chronos Luxury',
-      subtitle: 'Product Landing Page',
-      description: 'A cinematic landing page for a luxury watch, featuring rich animations and storytelling that mimics high-end international advertising.',
-      image: 'https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tech: ['React.js', 'CSS3', 'GSAP'],
-      category: 'Landing Page',
-      siteUrl: 'https://mahmoudrady3.github.io/chronos-luxury',
-      repoUrl: 'https://github.com/mahmoudrady3/chronos-luxury'
-    },
-    {
-      title: 'Nova Estate',
-      subtitle: 'Real Estate Website',
-      description: 'A modern real estate platform showcasing properties with clean visuals, structured layout, and intuitive navigation.',
-      image: 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tech: ['React.js', 'Tailwind CSS', 'Node.js'],
-      category: 'Platform',
-      siteUrl: 'https://mahmoudrady3.github.io/nova-estate',
-      repoUrl: 'https://github.com/mahmoudrady3/nova-estate'
-    },
-    {
-      title: 'Inter Point',
-      subtitle: 'Egypt Tourism',
-      description: 'A tourism company website promoting domestic travel across Egypt, with multilingual support and full-page navigation.',
-      image: 'https://images.pexels.com/photos/71241/pexels-photo-71241.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tech: ['React.js', 'i18next', 'Tailwind CSS'],
-      category: 'Tourism',
-      siteUrl: 'https://mahmoudrady3.github.io/inter-point',
-      repoUrl: 'https://github.com/mahmoudrady3/inter-point'
-    },
-    {
-      title: 'LUXE Store',
-      subtitle: 'Home Decor E-commerce',
-      description: 'A stylish e-commerce store for furniture and décor, including offer pages, product details, and a shopping cart experience.',
-      image: 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tech: ['React.js', 'Redux', 'Stripe API'],
-      category: 'E-commerce',
-      siteUrl: 'https://mahmoudrady3.github.io/luxe-store',
-      repoUrl: 'https://github.com/mahmoudrady3/luxe-store'
-    }
-  ];
-
-  return (
-    <section id="projects" className="py-20 bg-dark-800">
-      <div className="container mx-auto px-6">
-        <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-playfair font-bold mb-6 gradient-text">
-              Featured Projects
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-gold-500 to-gold-400 mx-auto mb-6"></div>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto">
-              A collection of professional-grade websites that reflect real-world standards in design and performance
-            </p>
-          </div>
-
-          {/* Projects Grid */}
-          <div className="grid lg:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                className="group bg-dark-700 rounded-2xl overflow-hidden border border-gold-500/20 hover:border-gold-500/40 transition-all duration-500 card-glow animate-fade-in-up"
-                style={{animationDelay: `${index * 0.1}s`}}
-              >
-                {/* Project Image */}
-                <div className="relative overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  
-                  {/* Category Badge */}
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-gold-500 text-dark-900 text-sm font-medium rounded-full">
-                      {project.category}
-                    </span>
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {project.siteUrl && (
-                      <a
-                        href={project.siteUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 bg-dark-900/80 text-white rounded-full hover:bg-gold-500 hover:text-dark-900 transition-colors"
-                        title="View Website"
-                      >
-                        <ExternalLink size={18} />
-                      </a>
-                    )}
-                    {project.repoUrl && (
-                      <a
-                        href={project.repoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 bg-dark-900/80 text-white rounded-full hover:bg-gold-500 hover:text-dark-900 transition-colors"
-                        title="View Code"
-                      >
-                        <Github size={18} />
-                      </a>
-                    )}
-                  </div>
-                </div>
-
-                {/* Project Content */}
-                <div className="p-8">
-                  <div className="mb-4">
-                    <h3 className="text-2xl font-playfair font-bold text-white mb-2">
-                      {project.title}
-                    </h3>
-                    <p className="text-gold-500 font-medium">
-                      {project.subtitle}
-                    </p>
-                  </div>
-
-                  <p className="text-white/80 leading-relaxed mb-6">
-                    {project.description}
-                  </p>
-
-                  {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="px-3 py-1 bg-dark-600 text-white/80 text-sm rounded-full border border-gold-500/20"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Call to Action */}
-          <div className="text-center mt-16">
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-gold-500 to-gold-400 text-dark-900 font-semibold rounded-lg hover:from-gold-400 hover:to-gold-500 transition-all duration-300 transform hover:scale-105"
-            >
-              Let's Build Something Amazing Together
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Projects;
+// eslint-disable-next-line @typescript-eslint/no-unused-expressions
+[{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "2304",
+	"severity": 8,
+	"message": "Cannot find name 'href'.",
+	"source": "ts",
+	"startLineNumber": 130,
+	"startColumn": 25,
+	"endLineNumber": 130,
+	"endColumn": 29,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "2322",
+	"severity": 8,
+	"message": "Type '\"\" | { project: { title: string; subtitle: string; description: string; image: string; tech: string[]; category: string; siteUrl: string; repoUrl: string; }; \"\": any; }' is not assignable to type 'ReactNode'.\n  Object literal may only specify known properties, and 'project' does not exist in type 'ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal'.",
+	"source": "ts",
+	"startLineNumber": 130,
+	"startColumn": 31,
+	"endLineNumber": 130,
+	"endColumn": 38,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "eslint5",
+	"severity": 8,
+	"message": "Parsing error: ',' expected.",
+	"source": "eslint",
+	"startLineNumber": 130,
+	"startColumn": 37,
+	"endLineNumber": 130,
+	"endColumn": 37,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "1005",
+	"severity": 8,
+	"message": "',' expected.",
+	"source": "ts",
+	"startLineNumber": 130,
+	"startColumn": 38,
+	"endLineNumber": 130,
+	"endColumn": 39,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "1005",
+	"severity": 8,
+	"message": "')' expected.",
+	"source": "ts",
+	"startLineNumber": 131,
+	"startColumn": 25,
+	"endLineNumber": 131,
+	"endColumn": 31,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "1382",
+	"severity": 8,
+	"message": "Unexpected token. Did you mean `{'>'}` or `&gt;`?",
+	"source": "ts",
+	"startLineNumber": 134,
+	"startColumn": 23,
+	"endLineNumber": 134,
+	"endColumn": 24,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "17002",
+	"severity": 8,
+	"message": "Expected corresponding JSX closing tag for 'div'.",
+	"source": "ts",
+	"startLineNumber": 137,
+	"startColumn": 25,
+	"endLineNumber": 137,
+	"endColumn": 26,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "1381",
+	"severity": 8,
+	"message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?",
+	"source": "ts",
+	"startLineNumber": 138,
+	"startColumn": 22,
+	"endLineNumber": 138,
+	"endColumn": 23,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "2304",
+	"severity": 8,
+	"message": "Cannot find name 'href'.",
+	"source": "ts",
+	"startLineNumber": 141,
+	"startColumn": 25,
+	"endLineNumber": 141,
+	"endColumn": 29,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "2322",
+	"severity": 8,
+	"message": "Type '\"\" | { project: { title: string; subtitle: string; description: string; image: string; tech: string[]; category: string; siteUrl: string; repoUrl: string; }; \"\": any; }' is not assignable to type 'ReactNode'.\n  Object literal may only specify known properties, and 'project' does not exist in type 'ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal'.",
+	"source": "ts",
+	"startLineNumber": 141,
+	"startColumn": 31,
+	"endLineNumber": 141,
+	"endColumn": 38,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "1005",
+	"severity": 8,
+	"message": "',' expected.",
+	"source": "ts",
+	"startLineNumber": 141,
+	"startColumn": 38,
+	"endLineNumber": 141,
+	"endColumn": 39,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "1005",
+	"severity": 8,
+	"message": "')' expected.",
+	"source": "ts",
+	"startLineNumber": 142,
+	"startColumn": 25,
+	"endLineNumber": 142,
+	"endColumn": 31,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "1382",
+	"severity": 8,
+	"message": "Unexpected token. Did you mean `{'>'}` or `&gt;`?",
+	"source": "ts",
+	"startLineNumber": 145,
+	"startColumn": 23,
+	"endLineNumber": 145,
+	"endColumn": 24,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "17002",
+	"severity": 8,
+	"message": "Expected corresponding JSX closing tag for 'div'.",
+	"source": "ts",
+	"startLineNumber": 148,
+	"startColumn": 25,
+	"endLineNumber": 148,
+	"endColumn": 26,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "1381",
+	"severity": 8,
+	"message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?",
+	"source": "ts",
+	"startLineNumber": 149,
+	"startColumn": 22,
+	"endLineNumber": 149,
+	"endColumn": 23,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "1005",
+	"severity": 8,
+	"message": "')' expected.",
+	"source": "ts",
+	"startLineNumber": 151,
+	"startColumn": 17,
+	"endLineNumber": 151,
+	"endColumn": 19,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "1381",
+	"severity": 8,
+	"message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?",
+	"source": "ts",
+	"startLineNumber": 153,
+	"startColumn": 15,
+	"endLineNumber": 153,
+	"endColumn": 16,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "1382",
+	"severity": 8,
+	"message": "Unexpected token. Did you mean `{'>'}` or `&gt;`?",
+	"source": "ts",
+	"startLineNumber": 161,
+	"startColumn": 13,
+	"endLineNumber": 161,
+	"endColumn": 14,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "17002",
+	"severity": 8,
+	"message": "Expected corresponding JSX closing tag for 'div'.",
+	"source": "ts",
+	"startLineNumber": 163,
+	"startColumn": 15,
+	"endLineNumber": 163,
+	"endColumn": 16,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "17002",
+	"severity": 8,
+	"message": "Expected corresponding JSX closing tag for 'section'.",
+	"source": "ts",
+	"startLineNumber": 164,
+	"startColumn": 13,
+	"endLineNumber": 164,
+	"endColumn": 16,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "1005",
+	"severity": 8,
+	"message": "')' expected.",
+	"source": "ts",
+	"startLineNumber": 166,
+	"startColumn": 9,
+	"endLineNumber": 166,
+	"endColumn": 11,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "2304",
+	"severity": 8,
+	"message": "Cannot find name 'div'.",
+	"source": "ts",
+	"startLineNumber": 166,
+	"startColumn": 11,
+	"endLineNumber": 166,
+	"endColumn": 14,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "1109",
+	"severity": 8,
+	"message": "Expression expected.",
+	"source": "ts",
+	"startLineNumber": 167,
+	"startColumn": 7,
+	"endLineNumber": 167,
+	"endColumn": 9,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "2304",
+	"severity": 8,
+	"message": "Cannot find name 'div'.",
+	"source": "ts",
+	"startLineNumber": 167,
+	"startColumn": 9,
+	"endLineNumber": 167,
+	"endColumn": 12,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "1109",
+	"severity": 8,
+	"message": "Expression expected.",
+	"source": "ts",
+	"startLineNumber": 168,
+	"startColumn": 5,
+	"endLineNumber": 168,
+	"endColumn": 7,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "2552",
+	"severity": 8,
+	"message": "Cannot find name 'section'. Did you mean 'Selection'?",
+	"source": "ts",
+	"startLineNumber": 168,
+	"startColumn": 7,
+	"endLineNumber": 168,
+	"endColumn": 14,
+	"relatedInformation": [
+		{
+			"startLineNumber": 35060,
+			"startColumn": 13,
+			"endLineNumber": 35060,
+			"endColumn": 22,
+			"message": "'Selection' is declared here.",
+			"resource": "/d:/vs code/Microsoft VS Code/e7fb5e96c0/resources/app/extensions/node_modules/typescript/lib/lib.dom.d.ts"
+		}
+	],
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "1109",
+	"severity": 8,
+	"message": "Expression expected.",
+	"source": "ts",
+	"startLineNumber": 169,
+	"startColumn": 3,
+	"endLineNumber": 169,
+	"endColumn": 4,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "1128",
+	"severity": 8,
+	"message": "Declaration or statement expected.",
+	"source": "ts",
+	"startLineNumber": 170,
+	"startColumn": 1,
+	"endLineNumber": 170,
+	"endColumn": 2,
+	"modelVersionId": 7,
+	"origin": "extHost1"
+},{
+	"resource": "/d:/Mahmoud Rady - Portfolio/src/components/Projects.tsx",
+	"owner": "typescript",
+	"code": "6133",
+	"severity": 4,
+	"message": "'React' is declared but its value is never read.",
+	"source": "ts",
+	"startLineNumber": 1,
+	"startColumn": 1,
+	"endLineNumber": 1,
+	"endColumn": 27,
+	"modelVersionId": 7,
+	"tags": [
+		1
+	],
+	"origin": "extHost1"
+}]
